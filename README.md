@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="Docs/banner.png" alt="IncidentIQ — SRE Incident Response with Memory" width="70%">
+</p>
 
 
 # IncidentIQ - Intelligent SRE Incident Response
@@ -58,6 +61,7 @@ The incident-response workflow works as follows:
   <img src="Docs/Screenshots/landing-page-1.png" alt="IncidentIQ Landing Page" width="650"/>
 
 </div>
+
 
 <div align="center">
 
