@@ -1,0 +1,205 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * IncidentIQ design system — Editorial SRE / Technical Swiss.
+ * Restrained 3-colour system: paper #F4F1EA, ink #171717, accent #E4572E.
+ * All colours are oklch tokens. Never hardcode colour utilities in components.
+ */
+
+@theme inline {
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-3xl: 10px;
+  --radius-4xl: 12px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-rule: var(--rule);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-verified: var(--verified);
+  --color-verified-tint: var(--verified-tint);
+  --color-failed: var(--failed);
+  --color-failed-tint: var(--failed-tint);
+  --color-warning: var(--warning);
+  --color-warning-tint: var(--warning-tint);
+  --color-memory: var(--memory);
+  --color-memory-tint: var(--memory-tint);
+
+  --font-editorial: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 3px;
+
+  --background: oklch(0.951 0.016 88.5);
+  --foreground: oklch(0.205 0 0);
+
+  --card: oklch(0.968 0.012 88.5);
+  --card-foreground: oklch(0.205 0 0);
+  --popover: oklch(0.968 0.012 88.5);
+  --popover-foreground: oklch(0.205 0 0);
+
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.968 0.012 88.5);
+
+  --secondary: oklch(0.915 0.016 88.5);
+  --secondary-foreground: oklch(0.205 0 0);
+
+  --muted: oklch(0.915 0.016 88.5);
+  --muted-foreground: oklch(0.46 0.012 75);
+
+  --accent: oklch(0.616 0.176 39.5);
+  --accent-foreground: oklch(0.98 0.01 88.5);
+
+  --destructive: oklch(0.52 0.19 27);
+  --destructive-foreground: oklch(0.98 0.01 88.5);
+
+  --rule: oklch(0.205 0 0);
+  --border: oklch(0.205 0 0 / 14%);
+  --input: oklch(0.205 0 0 / 28%);
+  --ring: oklch(0.616 0.176 39.5);
+
+  --verified: oklch(0.42 0.08 155);
+  --verified-tint: oklch(0.42 0.08 155 / 10%);
+  --failed: oklch(0.46 0.15 27);
+  --failed-tint: oklch(0.46 0.15 27 / 9%);
+  --warning: oklch(0.52 0.11 75);
+  --warning-tint: oklch(0.52 0.11 75 / 12%);
+  --memory: oklch(0.44 0.09 300);
+  --memory-tint: oklch(0.44 0.09 300 / 10%);
+
+  --grid-line: oklch(0.205 0 0 / 5%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-weight: 400;
+  }
+}
+
+@utility editorial {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+}
+
+/* Small uppercase technical label — the workhorse of this design system. */
+@utility label-tech {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@utility rule-t {
+  border-top: 1px solid var(--color-rule);
+}
+
+@utility rule-b {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+@utility hairline-b {
+  border-bottom: 1px solid var(--color-border);
+}
+
+@utility measure {
+  max-width: 34rem;
+}
+
+/* ---------- Meaningful motion ---------- */
+@keyframes iq-draw { to { stroke-dashoffset: 0; } }
+@keyframes iq-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes iq-page { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes iq-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@utility iq-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: iq-draw 600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@utility iq-rise {
+  opacity: 0;
+  animation: iq-rise 420ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+@utility iq-page {
+  animation: iq-page 260ms ease-out both;
+}
+@utility iq-grow {
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: iq-grow 900ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+@utility iq-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 420ms ease-out, transform 420ms ease-out;
+  &[data-in="true"] { opacity: 1; transform: none; }
+}
+@utility btn-primary {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-foreground);
+  background: var(--color-foreground);
+  color: var(--color-primary-foreground);
+  padding: 0.75rem 1.25rem;
+  transition: transform 160ms ease-out, background-color 160ms, box-shadow 160ms;
+  &:hover:not(:disabled) { transform: translateY(-2px); background: var(--color-accent); box-shadow: 3px 3px 0 0 var(--color-foreground); }
+  &:active:not(:disabled) { transform: none; box-shadow: none; }
+  &:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  &:disabled { opacity: 0.4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iq-draw { animation: none; stroke-dashoffset: 0; }
+  .iq-rise, .iq-page, .iq-grow { animation: none; opacity: 1; transform: none; }
+  .iq-reveal { transition: none; opacity: 1; transform: none; }
+}
