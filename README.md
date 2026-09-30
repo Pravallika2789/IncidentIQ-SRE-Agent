@@ -7,7 +7,6 @@
 
 IncidentIQ is an intelligent SRE incident-response agent that uses Hindsight persistent memory to help engineers investigate production incidents, recall previous operational experience, learn from successful and failed resolution attempts, and make safer deployment decisions.
 
-It combines a React frontend, FastAPI backend, Hindsight for persistent operational memory, and Groq-powered AI reasoning to turn past incidents into reusable engineering knowledge.
 
 ## Team Code & Chaos
 
