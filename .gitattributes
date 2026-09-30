@@ -1,0 +1,6 @@
+# Exclude generated frontend/build files
+frontend/dist/** linguist-generated=true
+frontend/node_modules/** linguist-vendored=true
+
+# Documentation/assets should not affect language statistics
+Docs/** linguist-documentation=true
